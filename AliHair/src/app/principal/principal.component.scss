@@ -1,0 +1,184 @@
+$cor-primaria: #6c757d;
+$cor-secundaria: #fdc203;
+$cor-fundo-claro: #c4c4c4;
+$cor-texto-suave: #6c757d;
+$espacamento-padrao: 1rem;
+
+// Mixins
+@mixin flex-centro {
+  display: flex;
+  align-items: center;
+}
+
+@mixin sombra-suave {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+// Estilos Base
+.principal {
+  min-height: 100vh;
+}
+
+.texto-central {
+  text-align: center;
+}
+
+// Cabeçalho
+.cabecalho {
+  padding: 3rem $espacamento-padrao;
+  margin-bottom: 0;
+  background-color: #fff;
+  
+  &-titulo {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: $espacamento-padrao;
+  }
+}
+
+// Textos
+.texto {
+  &-suave {
+    color: $cor-texto-suave;
+  }
+  
+  &-subtitulo {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+}
+
+// Botões
+.botao {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
+  
+  &-primario {
+    background-color: $cor-primaria;
+    border: 1px solid $cor-primaria;
+    color: #fff;
+    
+    &:hover {
+      background-color: darken($cor-primaria, 7%);
+    }
+  }
+  
+  &-secundario {
+    background-color: $cor-secundaria;
+    border: 1px solid $cor-secundaria;
+    color: #fff;
+    
+    &:hover {
+      background-color: darken($cor-secundaria, 7%);
+    }
+  }
+  
+  &-contorno-secundario {
+    color: $cor-secundaria;
+    border: 1px solid $cor-secundaria;
+    background-color: transparent;
+    
+    &:hover {
+      background-color: $cor-secundaria;
+      color: #fff;
+    }
+  }
+  
+  &-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+// Layout
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.linha {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.coluna-md-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+  padding: 0 15px;
+  
+  @media (max-width: 768px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+// Cartão
+.cartao {
+  position: relative;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  @include sombra-suave;
+  
+  &-imagem-topo {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+  
+  &-corpo {
+    padding: $espacamento-padrao;
+  }
+  
+  &-texto {
+    margin-bottom: $espacamento-padrao;
+  }
+}
+
+// Utilidades
+.fundo-claro {
+  background-color: $cor-fundo-claro;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.py-5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.meu-2 {
+  margin: 0.5rem;
+}
+
+.sombra-caixa {
+  @include sombra-suave;
+}
+
+.flex {
+  display: flex;
+}
+
+.justificar-conteudo-entre {
+  justify-content: space-between;
+}
+
+.alinhar-itens-centro {
+  align-items: center;
+}
+
+.grupo-botoes {
+  display: flex;
+  gap: 0.5rem;
+}
