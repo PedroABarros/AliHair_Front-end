@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PrincipalComponent } from './principal/principal.component'; // ajuste o caminho conforme necessário
-import { LoginComponent } from './login/login.component'; // ajuste o caminho conforme necessário
+import { PrincipalComponent } from './principal/principal.component'; 
+import { LoginComponent } from './login/login.component'; 
+import { ListaClientesComponent } from './pages/listar-clientes/listar-clientes.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/principal', pathMatch: 'full' }, // Redireciona para a página de login ao acessar a raiz
+  { path: '', redirectTo: '/principal', pathMatch: 'full' }, 
   { path: 'login', component: LoginComponent },
   { path: 'principal', component: PrincipalComponent },
-  // Adicione outras rotas aqui, se necessário
+  {path: 'listar-clientes', component: ListaClientesComponent}
+  
 ];
 
 @NgModule({
