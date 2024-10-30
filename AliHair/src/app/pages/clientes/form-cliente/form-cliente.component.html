@@ -1,0 +1,103 @@
+<div class="container mt-4">
+  <h2>{{isEdicao ? 'Editar' : 'Novo'}} Cliente</h2>
+
+  <div *ngIf="loading" class="text-center my-3">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Carregando...</span>
+    </div>
+  </div>
+
+  <form [formGroup]="clienteForm" (ngSubmit)="salvar()">
+    <!-- Nome -->
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome Completo</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="nome"
+        formControlName="nome"
+        [class.is-invalid]="nome?.invalid && (nome?.touched || submitted)">
+      
+      <div class="invalid-feedback">
+        <div *ngIf="nome?.errors?.['required']">Nome é obrigatório</div>
+        <div *ngIf="nome?.errors?.['nomeIncompleto']">{{nome?.errors?.['nomeIncompleto']}}</div>
+        <div *ngIf="nome?.errors?.['nomeMinLength']">{{nome?.errors?.['nomeMinLength']}}</div>
+      </div>
+    </div>
+
+    <!-- Telefone -->
+    <div class="mb-3">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="telefone"
+        formControlName="telefone"
+        mask="(00) 00000-0000"
+        [class.is-invalid]="telefone?.invalid && (telefone?.touched || submitted)">
+      
+      <div class="invalid-feedback">
+        <div *ngIf="telefone?.errors?.['required']">Telefone é obrigatório</div>
+        <div *ngIf="telefone?.errors?.['telefoneInvalido']">
+          {{telefone?.errors?.['telefoneInvalido']}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        id="email"
+        formControlName="email"
+        [class.is-invalid]="email?.invalid && (email?.touched || submitted)">
+      
+      <div class="invalid-feedback">
+        <div *ngIf="email?.errors?.['required']">Email é obrigatório</div>
+        <div *ngIf="email?.errors?.['emailInvalido']">
+          {{email?.errors?.['emailInvalido']}}
+        </div>
+      </div>
+    </div>
+
+    <!-- CPF -->
+    <div class="mb-3">
+      <label for="cpf" class="form-label">CPF</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="cpf"
+        formControlName="cpf"
+        mask="000.000.000-00"
+        [class.is-invalid]="cpf?.invalid && (cpf?.touched || submitted)">
+      
+      <div class="invalid-feedback">
+        <div *ngIf="cpf?.errors?.['required']">CPF é obrigatório</div>
+        <div *ngIf="cpf?.errors?.['cpfInvalido']">
+          {{cpf?.errors?.['cpfInvalido']}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Botões -->
+    <div class="mt-4">
+      <button 
+        type="submit" 
+        class="btn btn-primary me-2"
+        [disabled]="loading">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+        {{isEdicao ? 'Atualizar' : 'Salvar'}}
+      </button>
+      
+      <button 
+        type="button" 
+        class="btn btn-secondary"
+        [disabled]="loading"
+        (click)="cancelar()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
