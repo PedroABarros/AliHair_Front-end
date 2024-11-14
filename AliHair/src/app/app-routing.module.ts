@@ -7,17 +7,15 @@ import { FormClienteComponent } from './pages/clientes/form-cliente/form-cliente
 import { CadastroSalaoComponent } from './salaos/cadastro-salao/cadastro-salao.component';
 import { CardSalaoComponent } from './card-salao/card-salao.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/principal', pathMatch: 'full' }, 
   { path: 'login', component: LoginComponent },
   { path: 'principal', component: PrincipalComponent },
-  {path: 'listar-clientes', component: ListaClientesComponent},
+  { path: 'listar-clientes', component: ListaClientesComponent },
   { path: 'clientes/novo', component: FormClienteComponent },
   { path: 'clientes/editar/:id', component: FormClienteComponent },
-  {path: 'novo-salao', component: CadastroSalaoComponent},
-  {path: 'card-salao', component: CardSalaoComponent}
-  
+  { path: 'novo-salao', component: CadastroSalaoComponent },
+  { path: 'card-salao', component: CardSalaoComponent }
 ];
 
 @NgModule({

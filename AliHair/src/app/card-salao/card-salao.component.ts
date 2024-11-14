@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card-salao',
@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class CardSalaoComponent {
   @Input() salao: any;
+  @Output() agendarSalao = new EventEmitter<void>();
+
+  agendar() {
+    console.log('Agendar botão clicado no CardSalaoComponent');
+    this.agendarSalao.emit();
+  }
 }

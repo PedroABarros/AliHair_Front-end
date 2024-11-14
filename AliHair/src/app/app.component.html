@@ -1,2 +1,10 @@
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
+
+<app-card-salao
+  *ngFor="let salao of saloes"
+  [salao]="salao"
+  (agendarSalao)="openModal()">
+</app-card-salao>
+
+<app-agendar-salao *ngIf="isModalOpen" (close)="closeModal()"></app-agendar-salao>

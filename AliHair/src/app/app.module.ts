@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -12,7 +13,7 @@ import { FormClienteComponent } from './pages/clientes/form-cliente/form-cliente
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { CadastroSalaoComponent } from './salaos/cadastro-salao/cadastro-salao.component';
 import { CardSalaoComponent } from './card-salao/card-salao.component';
-
+import { AgendarSalaoComponent } from './agendar-salao/agendar-salao.component';
 
 @NgModule({
   declarations: [
@@ -23,19 +24,21 @@ import { CardSalaoComponent } from './card-salao/card-salao.component';
     ListaClientesComponent,
     FormClienteComponent,
     CadastroSalaoComponent,
-    CardSalaoComponent
-  
+    CardSalaoComponent,
+    AgendarSalaoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxMaskDirective, 
+    HttpClientModule,
+    NgxMaskDirective,
     NgxMaskPipe
   ],
   providers: [
-    provideHttpClient(withInterceptorsFromDi()), provideNgxMask()
+    provideHttpClient(withInterceptorsFromDi()),
+    provideNgxMask()
   ],
   bootstrap: [AppComponent]
 })
