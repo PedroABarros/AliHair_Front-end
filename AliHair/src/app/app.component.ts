@@ -9,9 +9,7 @@ export class AppComponent {
   title = 'AliHair';
   isModalOpen = false;
   saloes = [ 
-    // Adicione aqui dados de exemplo para os salões
-    { nome: 'Salão XYZ', logradouro: 'Rua A', bairro: 'Bairro B', cidade: 'Cidade C', estado: 'Estado D', servicos: 'Corte, Coloração', preco: 50 },
-    // Outros salões...
+    
   ];
 
   openModal() {

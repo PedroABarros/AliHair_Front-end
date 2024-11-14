@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../service/AuthService.service';
+import { AuthService } from '../../service/Auth.service';
 
 @Component({
   selector: 'app-login',
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         this.loading = false;
         if (cliente) {
           alert(`Bem-vindo, ${cliente.nome}!`);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/principal']);
         } else {
           this.errorMessage = 'Email ou senha incorretos';
         }

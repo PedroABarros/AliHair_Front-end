@@ -1,29 +1,28 @@
 <div class="modal">
-    <div class="modal-content">
-      <span class="close-button" (click)="closeModal()">&times;</span>
-      <h2>Agendar Serviço</h2>
-      <form (ngSubmit)="onSubmit()">
-        <div>
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" [(ngModel)]="agendamento.nome" required>
-        </div>
-        <div>
-          <label for="data">Data:</label>
-          <input type="date" id="data" name="data" [(ngModel)]="agendamento.data" required>
-        </div>
-        <div>
-          <label for="hora">Hora:</label>
-          <input type="time" id="hora" name="hora" [(ngModel)]="agendamento.hora" required>
-        </div>
-        <div>
-          <label for="descricao">Descrição:</label>
-          <select id="descricao" name="descricao" [(ngModel)]="agendamento.descricao" required>
-            <option value="corte">Corte</option>
-            <option value="outra">Outra</option>
-          </select>
-        </div>
-        <button type="submit">Agendar</button>
-      </form>
-    </div>
+  <div class="modal-content">
+    <span class="close-button" (click)="closeModal()">&times;</span>
+    <h2>Agendar Serviço</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" [(ngModel)]="agendamento.nomeCliente" required>
+      </div>
+      <div>
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" [(ngModel)]="agendamento.diaAgendamento" required>
+      </div>
+      <div>
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" [(ngModel)]="agendamento.horarioAgendamento" required>
+      </div>
+      <div>
+        <label for="descricao">Descrição:</label>
+        <select id="descricao" name="descricao" [(ngModel)]="agendamento.descricao" required>
+          <option value="corte">Corte</option>
+          <option value="outra">Outra</option>
+        </select>
+      </div>
+      <button type="submit">Agendar</button>
+    </form>
   </div>
-  
+</div>

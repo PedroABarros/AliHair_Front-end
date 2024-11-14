@@ -4,4 +4,5 @@ export interface Cliente {
   telefone: string;
   email: string;
   cpf: string;
+  senha: string;
 }

@@ -8,9 +8,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class CardSalaoComponent {
   @Input() salao: any;
   @Output() agendarSalao = new EventEmitter<void>();
+  isModalOpen = false;
 
-  agendar() {
-    console.log('Agendar botão clicado no CardSalaoComponent');
-    this.agendarSalao.emit();
+  agendar() { this.openModal();}
+  openModal() {
+    console.log('Abrir modal chamado no AppComponent');
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    console.log('Fechar modal chamado no AppComponent');
+    this.isModalOpen = false;
   }
 }

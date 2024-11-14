@@ -20,7 +20,15 @@
       </small>
     </p>
   </div>
+ <!-- card-salao.component.html -->
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">{{ salao.nome }}</h5>
+    <!-- outras informações -->
+  </div>
   <div class="card-footer bg-transparent">
     <button class="btn btn-primary btn-block" (click)="agendar()">Agendar</button>
+    <app-agendar-salao *ngIf="isModalOpen" [idSalao]="salao.id" (close)="closeModal()"></app-agendar-salao>
   </div>
+</div>
 </div>

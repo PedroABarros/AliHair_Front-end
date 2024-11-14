@@ -1,25 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClienteService } from '../../../service/Cliente.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cliente } from '../../../model/Cliente';
-import { CustomValidators } from '../../../../CustomValidators';
+import { ClienteService } from '../../../service/Cliente.service';
+import { AuthService } from '../../../service/Auth.service';
 import { finalize } from 'rxjs/operators';
+import { CustomValidators } from '../../../../CustomValidators';
+import { Cliente } from '../../../model/Cliente';
 
 @Component({
   selector: 'app-form-cliente',
   templateUrl: './form-cliente.component.html',
-  styleUrl: './form-cliente.component.scss'
+  styleUrls: ['./form-cliente.component.scss']
 })
 export class FormClienteComponent implements OnInit {
   clienteForm!: FormGroup;
   isEdicao = false;
   loading = false;
   submitted = false;
+  errorMessage: string | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
     private clienteService: ClienteService,
+    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
   ) {
@@ -44,6 +47,10 @@ export class FormClienteComponent implements OnInit {
       cpf: ['', [
         Validators.required,
         CustomValidators.validaCPF
+      ]],
+      senha: ['', [
+        Validators.required,
+        Validators.minLength(6)
       ]]
     });
   }
@@ -86,11 +93,19 @@ export class FormClienteComponent implements OnInit {
       finalize(() => this.loading = false)
     ).subscribe({
       next: () => {
-        const message = this.isEdicao
-          ? 'Cliente atualizado com sucesso!'
-          : 'Cliente cadastrado com sucesso!';
-        alert(message);
-        this.router.navigate(['principal']);
+        this.authService.login(cliente.email, cliente.senha).subscribe({
+          next: (authCliente) => {
+            if (authCliente) {
+              alert(`Bem-vindo, ${authCliente.nome}!`);
+              this.router.navigate(['/dashboard']);
+            } else {
+              this.errorMessage = 'Erro ao tentar fazer login';
+            }
+          },
+          error: () => {
+            this.errorMessage = 'Erro ao tentar fazer login';
+          }
+        });
       },
       error: (error) => {
         console.error('Erro ao salvar cliente:', error);
@@ -120,9 +135,9 @@ export class FormClienteComponent implements OnInit {
     }
   }
 
-
   get nome() { return this.clienteForm.get('nome'); }
   get telefone() { return this.clienteForm.get('telefone'); }
   get email() { return this.clienteForm.get('email'); }
   get cpf() { return this.clienteForm.get('cpf'); }
+  get senha() { return this.clienteForm.get('senha'); }
 }
