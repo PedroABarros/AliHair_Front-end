@@ -1,4 +1,3 @@
-// cadastro-salao.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SalaoService } from '../../service/salao.service';
@@ -28,14 +27,13 @@ export class CadastroSalaoComponent implements OnInit {
       cidade: ['', Validators.required],
       estado: ['', Validators.required],
       telefone: ['', [Validators.required, Validators.pattern(/^\(\d{2}\)\s\d{5}-\d{4}$/)]],
-      preco: ['', [Validators.required, Validators.min(0.01)]],
+      preco: [null, [Validators.required, Validators.min(0.01)]],
       servicos: ['', [Validators.required, Validators.maxLength(20)]],
       cnpj: ['', [Validators.required, Validators.pattern(/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/)]]
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   async buscarCep() {
     const cep = this.formSalao.get('cep')?.value?.replace(/\D/g, '');

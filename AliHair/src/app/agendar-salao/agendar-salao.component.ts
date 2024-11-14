@@ -13,6 +13,7 @@ export class AgendarSalaoComponent implements OnInit {
   @Output() close = new EventEmitter<void>();
 
   agendamento: Agendamento = {
+    idCliente: 0,
     nomeCliente: '',
     idSalao: 0,
     diaAgendamento: '',
@@ -29,6 +30,7 @@ export class AgendarSalaoComponent implements OnInit {
     const cliente = this.authService.getLoggedInCliente();
     if (cliente) {
       this.agendamento.nomeCliente = cliente.nome;
+      this.agendamento.idCliente = cliente.id;
     }
 
     this.agendamento.idSalao = this.idSalao;
