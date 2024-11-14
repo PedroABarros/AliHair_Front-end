@@ -1,0 +1,160 @@
+<!-- cadastro-salao.component.html -->
+<div class="container">
+    <h2>Cadastro de Salão</h2>
+    
+    <form [formGroup]="formSalao" (ngSubmit)="onSubmit()" class="form-cadastro">
+      <div class="mensagem-erro" *ngIf="mensagemErro">
+        {{ mensagemErro }}
+      </div>
+  
+      <div class="form-group">
+        <label for="nome">Nome do Salão *</label>
+        <input 
+          id="nome" 
+          type="text" 
+          formControlName="nome" 
+          class="form-control"
+          [class.invalido]="formSalao.get('nome')?.invalid && formSalao.get('nome')?.touched">
+        <div class="erro-mensagem" *ngIf="formSalao.get('nome')?.invalid && formSalao.get('nome')?.touched">
+          <span *ngIf="formSalao.get('nome')?.errors?.['required']">Nome é obrigatório</span>
+          <span *ngIf="formSalao.get('nome')?.errors?.['minlength']">Nome deve ter no mínimo 10 caracteres</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">E-mail *</label>
+        <input 
+          id="email" 
+          type="email" 
+          formControlName="email" 
+          class="form-control"
+          [class.invalido]="formSalao.get('email')?.invalid && formSalao.get('email')?.touched">
+        <div class="erro-mensagem" *ngIf="formSalao.get('email')?.invalid && formSalao.get('email')?.touched">
+          <span *ngIf="formSalao.get('email')?.errors?.['required']">E-mail é obrigatório</span>
+          <span *ngIf="formSalao.get('email')?.errors?.['email']">E-mail inválido</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="cep">CEP *</label>
+        <input 
+          id="cep" 
+          type="text" 
+          formControlName="cep" 
+          class="form-control"
+          (blur)="buscarCep()"
+          (input)="mascaraCep($event)"
+          maxlength="9"
+          [class.invalido]="formSalao.get('cep')?.invalid && formSalao.get('cep')?.touched">
+        <div class="erro-mensagem" *ngIf="formSalao.get('cep')?.invalid && formSalao.get('cep')?.touched">
+          <span *ngIf="formSalao.get('cep')?.errors?.['required']">CEP é obrigatório</span>
+          <span *ngIf="formSalao.get('cep')?.errors?.['pattern']">CEP inválido</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="logradouro">Logradouro *</label>
+        <input 
+          id="logradouro" 
+          type="text" 
+          formControlName="logradouro" 
+          class="form-control"
+          [class.invalido]="formSalao.get('logradouro')?.invalid && formSalao.get('logradouro')?.touched">
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="bairro">Bairro *</label>
+          <input 
+            id="bairro" 
+            type="text" 
+            formControlName="bairro" 
+            class="form-control">
+        </div>
+  
+        <div class="form-group col">
+          <label for="cidade">Cidade *</label>
+          <input 
+            id="cidade" 
+            type="text" 
+            formControlName="cidade" 
+            class="form-control">
+        </div>
+  
+        <div class="form-group col">
+          <label for="estado">Estado *</label>
+          <input 
+            id="estado" 
+            type="text" 
+            formControlName="estado" 
+            class="form-control">
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="telefone">Telefone *</label>
+        <input 
+          id="telefone" 
+          type="text" 
+          formControlName="telefone" 
+          class="form-control"
+          (input)="mascaraTelefone($event)"
+          maxlength="15"
+          [class.invalido]="formSalao.get('telefone')?.invalid && formSalao.get('telefone')?.touched">
+        <div class="erro-mensagem" *ngIf="formSalao.get('telefone')?.invalid && formSalao.get('telefone')?.touched">
+          <span *ngIf="formSalao.get('telefone')?.errors?.['required']">Telefone é obrigatório</span>
+          <span *ngIf="formSalao.get('telefone')?.errors?.['pattern']">Telefone inválido</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="preco">Preço Base *</label>
+        <input 
+          id="preco" 
+          type="number" 
+          formControlName="preco" 
+          class="form-control"
+          min="0.01"
+          step="0.01"
+          [class.invalido]="formSalao.get('preco')?.invalid && formSalao.get('preco')?.touched">
+        <div class="erro-mensagem" *ngIf="formSalao.get('preco')?.invalid && formSalao.get('preco')?.touched">
+          <span *ngIf="formSalao.get('preco')?.errors?.['required']">Preço é obrigatório</span>
+          <span *ngIf="formSalao.get('preco')?.errors?.['min']">Preço deve ser maior que zero</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="servicos">Serviços *</label>
+        <input 
+          id="servicos" 
+          type="text" 
+          formControlName="servicos" 
+          class="form-control"
+          [class.invalido]="formSalao.get('servicos')?.invalid && formSalao.get('servicos')?.touched">
+        <div class="erro-mensagem" *ngIf="formSalao.get('servicos')?.invalid && formSalao.get('servicos')?.touched">
+          <span *ngIf="formSalao.get('servicos')?.errors?.['required']">Serviços é obrigatório</span>
+          <span *ngIf="formSalao.get('servicos')?.errors?.['maxlength']">Máximo de 20 caracteres</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="cnpj">CNPJ *</label>
+        <input 
+          id="cnpj" 
+          type="text" 
+          formControlName="cnpj" 
+          class="form-control"
+          (input)="mascaraCnpj($event)"
+          maxlength="18"
+          [class.invalido]="formSalao.get('cnpj')?.invalid && formSalao.get('cnpj')?.touched">
+        <div class="erro-mensagem" *ngIf="formSalao.get('cnpj')?.invalid && formSalao.get('cnpj')?.touched">
+          <span *ngIf="formSalao.get('cnpj')?.errors?.['required']">CNPJ é obrigatório</span>
+          <span *ngIf="formSalao.get('cnpj')?.errors?.['pattern']">CNPJ inválido</span>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn-cadastrar" [disabled]="formSalao.invalid || carregandoCep">
+        {{ carregandoCep ? 'Carregando...' : 'Cadastrar Salão' }}
+      </button>
+    </form>
+  </div>

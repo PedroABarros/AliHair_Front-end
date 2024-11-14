@@ -4,12 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { LoginComponent } from './login/login.component';
-import { PrincipalComponent } from './principal/principal.component';
+import { LoginComponent } from './pages/login/login.component';
+import { PrincipalComponent } from './pages/principal/principal.component';
 import { ListaClientesComponent } from './pages/clientes/listar-cliente/listar-clientes.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormClienteComponent } from './pages/clientes/form-cliente/form-cliente.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { CadastroSalaoComponent } from './salaos/cadastro-salao/cadastro-salao.component';
+import { CardSalaoComponent } from './card-salao/card-salao.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     LoginComponent,
     PrincipalComponent,
     ListaClientesComponent,
-    FormClienteComponent
+    FormClienteComponent,
+    CadastroSalaoComponent,
+    CardSalaoComponent
   
   ],
   imports: [

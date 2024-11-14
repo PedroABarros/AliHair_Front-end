@@ -1,0 +1,19 @@
+<main class="principal">
+  <section class="cabecalho texto-central">
+    <div class="container">
+      <h1 class="cabecalho-titulo">Encontre o melhor salão de beleza</h1>
+      <p class="texto-subtitulo texto-suave">
+        Escolha o salão ideal e agende seu horário com facilidade.
+      </p>
+    </div>
+  </section>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let salao of saloes">
+    <app-card-salao [salao]="salao"></app-card-salao>
+  </div>
+</div>
+
+</main>
+
+

@@ -90,7 +90,7 @@ export class FormClienteComponent implements OnInit {
           ? 'Cliente atualizado com sucesso!'
           : 'Cliente cadastrado com sucesso!';
         alert(message);
-        this.router.navigate(['listar-clientes']);
+        this.router.navigate(['principal']);
       },
       error: (error) => {
         console.error('Erro ao salvar cliente:', error);
@@ -100,7 +100,7 @@ export class FormClienteComponent implements OnInit {
   }
 
   cancelar(): void {
-    this.router.navigate(['listar-clientes']);
+    this.router.navigate(['principal']);
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
@@ -120,7 +120,7 @@ export class FormClienteComponent implements OnInit {
     }
   }
 
-  // Getters para facilitar acesso no template
+
   get nome() { return this.clienteForm.get('nome'); }
   get telefone() { return this.clienteForm.get('telefone'); }
   get email() { return this.clienteForm.get('email'); }

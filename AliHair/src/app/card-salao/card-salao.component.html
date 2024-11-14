@@ -1,0 +1,26 @@
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">{{salao.nome}}</h5>
+    <p class="card-text">
+      <small class="text-muted">
+        <i class="fas fa-map-marker-alt"></i>
+        {{salao.logradouro}}, {{salao.bairro}} - {{salao.cidade}}/{{salao.estado}}
+      </small>
+    </p>
+    <p class="card-text">
+      <small class="text-muted">
+        <i class="fas fa-cut"></i>
+        Serviços: {{salao.servicos}}
+      </small>
+    </p>
+    <p class="card-text">
+      <small class="text-muted">
+        <i class="fas fa-money-bill"></i>
+        A partir de R$ {{salao.preco.toFixed(2)}}
+      </small>
+    </p>
+  </div>
+  <div class="card-footer bg-transparent">
+    <button class="btn btn-primary btn-block">Agendar</button>
+  </div>
+</div>
