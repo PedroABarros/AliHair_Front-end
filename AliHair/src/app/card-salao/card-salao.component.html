@@ -1,18 +1,22 @@
+<!-- card-salao.component.html -->
 <div class="card h-100 shadow-sm">
   <div class="card-body">
-    <h5 class="card-title">{{salao.nome}}</h5>
+    <h5 class="card-title">{{ salao.nome }}</h5>
+
     <p class="card-text">
       <small class="text-muted">
         <i class="fas fa-map-marker-alt"></i>
-        {{salao.logradouro}}, {{salao.bairro}} - {{salao.cidade}}/{{salao.estado}}
+        {{ salao.logradouro }}, {{ salao.bairro }} - {{ salao.cidade }}/{{ salao.estado }}
       </small>
     </p>
+
     <p class="card-text">
       <small class="text-muted">
         <i class="fas fa-cut"></i>
-        Serviços: {{salao.servicos}}
+        Serviços: {{ salao.servicos }}
       </small>
     </p>
+
     <p class="card-text">
       <small class="text-muted">
         <i class="fas fa-money-bill"></i>
@@ -20,15 +24,13 @@
       </small>
     </p>
   </div>
- <!-- card-salao.component.html -->
-<div class="card h-100 shadow-sm">
-  <div class="card-body">
-    <h5 class="card-title">{{ salao.nome }}</h5>
-    <!-- outras informações -->
-  </div>
+
+  <!-- Rodapé do card -->
   <div class="card-footer bg-transparent">
-    <button class="btn btn-primary btn-block" (click)="agendar()">Agendar</button>
+    <!-- Botão de Agendamento -->
+    <button class="btn btn-primary btn-block" (click)="openModal()">Agendar</button>
+
+    <!-- Modal de Agendamento -->
     <app-agendar-salao *ngIf="isModalOpen" [idSalao]="salao.id" (close)="closeModal()"></app-agendar-salao>
   </div>
-</div>
 </div>

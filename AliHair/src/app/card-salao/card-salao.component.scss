@@ -1,0 +1,67 @@
+/* Estilos para o card do salão */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  
+    &.shadow-sm {
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+  
+    .card-body {
+      padding: 1.25rem;
+  
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+      }
+  
+      .card-text {
+        margin-bottom: 1rem;
+        font-size: 0.875rem;
+        color: #555;
+  
+        small {
+          font-size: 0.75rem;
+        }
+  
+        i {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  
+    .card-footer {
+      background-color: transparent;
+      padding: 1rem;
+      border-top: 1px solid #ddd;
+  
+      .btn {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        text-align: center;
+        border-radius: 0.25rem;
+        transition: background-color 0.3s ease;
+  
+        &.btn-primary {
+          background-color: #fdc203;
+          border-color: #fdc203;
+          color: white;
+  
+          &:hover {
+            background-color: darken(#fdc203, 10%);
+            border-color: darken(#fdc203, 10%);
+          }
+        }
+      }
+    }
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
