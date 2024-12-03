@@ -40,4 +40,8 @@ export class ListagemSaloesComponent implements OnInit {
   editarSalao(id: number) {
     this.router.navigate(['/editar-salao', id]);
   }
+  novoSalao(): void {
+    this.router.navigate(['/novo-salao']);
+  }
 }
+
