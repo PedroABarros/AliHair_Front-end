@@ -12,6 +12,9 @@ export class AgendarSalaoComponent implements OnInit {
   @Input() idSalao: number = 0;
   @Output() close = new EventEmitter<void>();
 
+  // Controle da visibilidade do modal
+  isVisible: boolean = false;
+
   agendamento: Agendamento = {
     idCliente: 0,
     nomeCliente: '',
@@ -36,10 +39,18 @@ export class AgendarSalaoComponent implements OnInit {
     this.agendamento.idSalao = this.idSalao;
   }
 
-  closeModal() {
-    this.close.emit();
+  // Método para abrir o modal
+  openModal() {
+    this.isVisible = true;
   }
 
+  // Método para fechar o modal
+  closeModal() {
+    this.isVisible = false;
+    this.close.emit();  // Emite o evento de fechamento para o componente pai
+  }
+
+  // Método para lidar com o envio do formulário de agendamento
   onSubmit() {
     this.agendamentoService.criarAgendamento(this.agendamento)
       .subscribe(response => {
