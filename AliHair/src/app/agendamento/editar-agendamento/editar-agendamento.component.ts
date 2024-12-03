@@ -60,7 +60,7 @@ export class EditarAgendamentoComponent implements OnInit {
       this.agendamentoService.atualizarAgendamento(this.id, this.formAgendamento.getRawValue()).subscribe(
         () => {
           alert('Agendamento atualizado com sucesso!');
-          this.router.navigate(['/meus-agendamentos']);
+          this.router.navigate(['/listar-agendamento']);
         },
         (error) => {
           console.error('Erro ao atualizar agendamento', error);

@@ -18,8 +18,8 @@
         <td>{{ agendamento.horarioAgendamento | date:'HH:mm' }}</td>
         <td>
           <div class="grupo-botoes">
-            <button (click)="editarAgendamento(agendamento.id ?? 0)" class="botao botao-primario botao-sm">Editar</button>
-            <button (click)="deleteAgendamento(agendamento.id ?? 0)" class="botao botao-secundario botao-sm">Excluir</button>
+            <button (click)="editarAgendamento(agendamento.id ?? 0)"  class="btn btn-primary">Editar</button>
+            <button (click)="deleteAgendamento(agendamento.id ?? 0)" class="btn btn-danger">Excluir</button>
           </div>
         </td>
       </tr>
