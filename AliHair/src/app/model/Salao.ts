@@ -1,4 +1,3 @@
-// salao.model.ts
 export interface Salao {
     id: number;
     nome: string;

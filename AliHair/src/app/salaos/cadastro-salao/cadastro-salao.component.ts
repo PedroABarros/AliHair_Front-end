@@ -67,7 +67,6 @@ export class CadastroSalaoComponent implements OnInit {
         const salao = this.formSalao.value;
         await this.salaoService.cadastrar(salao).toPromise();
         alert('Salão cadastrado com sucesso!');
-        this.router.navigate(['/login-salao']);
       } catch (erro: any) {
         this.mensagemErro = erro.error?.message || 'Erro ao cadastrar salão';
       }
