@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AgendamentoService } from '../../service/agendamento.service';
 import { Agendamento } from '../../model/Agendamento';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-agendamento',
@@ -10,7 +11,9 @@ import { Agendamento } from '../../model/Agendamento';
 export class ListaAgendamentoComponent implements OnInit {
   agendamentos: Agendamento[] = [];
 
-  constructor(private agendamentoService: AgendamentoService) {}
+  constructor(private agendamentoService: AgendamentoService,   private router: Router) {
+  
+  }
 
   ngOnInit(): void {
     this.loadAgendamentos();
@@ -41,6 +44,9 @@ export class ListaAgendamentoComponent implements OnInit {
     });
   }
 
-  editarAgendamento(id: number) {
-    console.log(`Editando agendamento com id: ${id}`)};
+  editarAgendamento(id: number | undefined) {
+    if (id !== undefined) {
+      this.router.navigate(['/editar-agendamento', id]);
+    }
+  }
 }
