@@ -7,7 +7,7 @@ import { Agendamento } from '../model/Agendamento';
   providedIn: 'root'
 })
 export class AgendamentoService {
-  private apiURL = 'http://localhost:8080/api/agendamentos'; // Altere a URL conforme necessário
+  private apiURL = 'http://localhost:8080/v1/agendamento'; // Ajuste a URL conforme necessário
 
   constructor(private http: HttpClient) {}
 
@@ -34,5 +34,10 @@ export class AgendamentoService {
   // Método para excluir um agendamento
   deleteAgendamento(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiURL}/${id}`);
+  }
+
+  // Método para obter agendamentos por cliente
+  getAgendamentosByCliente(idCliente: number): Observable<Agendamento[]> {
+    return this.http.get<Agendamento[]>(`${this.apiURL}/cliente/${idCliente}`);
   }
 }

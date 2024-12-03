@@ -10,7 +10,8 @@ import { ListagemSaloesComponent } from './salaos/listagem-saloes/listagem-saloe
 import { EditarSalaoComponent } from './salaos/editar-salao/editar-salao.component';
 import { ListaAgendamentoComponent} from './agendamento/lista-agendamento/lista-agendamento.component';  
 import { AgendarSalaoComponent } from './agendamento/agendar-salao/agendar-salao.component';  
-import { AgendamentoFormComponent } from './agendamento/agendamento-form/agendamento-form.component';  
+import { ListarAgendamentosUsuarioComponent } from './agendamento/listar-agendamentos-usuario/listar-agendamentos-usuario.component';
+import { EditarAgendamentoComponent } from './agendamento/editar-agendamento/editar-agendamento.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/principal', pathMatch: 'full' }, 
@@ -24,15 +25,11 @@ const routes: Routes = [
   { path: 'listar-saloes', component: ListagemSaloesComponent },
   { path: 'editar-salao/:id', component: EditarSalaoComponent },
   { path: 'listar-agendamento', component: ListaAgendamentoComponent },
-
-  
-  { path: 'listar-agendamentos', component: ListaAgendamentoComponent },
-  
-  
+  { path: 'listar-agendamentos', component: ListarAgendamentosUsuarioComponent },
+  {path: 'editar-agendamento/:id', component: EditarAgendamentoComponent},
   { path: 'agendar-salao', component: AgendarSalaoComponent },
   
-  
-  { path: 'editar-agendamento/:id', component: AgendamentoFormComponent }
+
 ];
 
 @NgModule({

@@ -17,7 +17,8 @@ import { AgendarSalaoComponent } from './agendamento/agendar-salao/agendar-salao
 import { ListagemSaloesComponent } from './salaos/listagem-saloes/listagem-saloes.component';
 import { EditarSalaoComponent } from './salaos/editar-salao/editar-salao.component';
 import { ListaAgendamentoComponent } from './agendamento/lista-agendamento/lista-agendamento.component';
-import { AgendamentoFormComponent } from './agendamento/agendamento-form/agendamento-form.component';
+import { ListarAgendamentosUsuarioComponent } from './agendamento/listar-agendamentos-usuario/listar-agendamentos-usuario.component';
+import { EditarAgendamentoComponent } from './agendamento/editar-agendamento/editar-agendamento.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AgendamentoFormComponent } from './agendamento/agendamento-form/agendam
     ListagemSaloesComponent,
     EditarSalaoComponent,
     ListaAgendamentoComponent,
-    AgendamentoFormComponent
+    ListarAgendamentosUsuarioComponent,
+    EditarAgendamentoComponent
   ],
   imports: [
     BrowserModule,

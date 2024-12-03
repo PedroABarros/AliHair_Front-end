@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Meus Agendamentos</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Salão</th>
+          <th>Data</th>
+          <th>Hora</th>
+          <th>Descrição</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let agendamento of agendamentos">
+          <td>{{ agendamento.nomeCliente }}</td>
+          <td>{{ agendamento.idSalao }}</td>
+          <td>{{ agendamento.diaAgendamento }}</td>
+          <td>{{ agendamento.horarioAgendamento }}</td>
+          <td>{{ agendamento.descricao }}</td>
+          <td>
+            <button (click)="excluirAgendamento(agendamento.id)" class="btn btn-danger">Excluir</button>
+            <button (click)="editarAgendamento(agendamento.id)" class="btn btn-primary">Editar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

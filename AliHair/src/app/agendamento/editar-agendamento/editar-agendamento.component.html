@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Editar Agendamento</h2>
+    <form [formGroup]="formAgendamento" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="idCliente">ID Cliente:</label>
+        <input id="idCliente" formControlName="idCliente" class="form-control" readonly>
+      </div>
+  
+      <div class="form-group">
+        <label for="nomeCliente">Nome Cliente:</label>
+        <input id="nomeCliente" formControlName="nomeCliente" class="form-control" readonly>
+      </div>
+  
+      <div class="form-group">
+        <label for="idSalao">ID Salão:</label>
+        <input id="idSalao" formControlName="idSalao" class="form-control" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="diaAgendamento">Data:</label>
+        <input id="diaAgendamento" formControlName="diaAgendamento" type="date" class="form-control" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="horarioAgendamento">Hora:</label>
+        <input id="horarioAgendamento" formControlName="horarioAgendamento" type="time" class="form-control" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" formControlName="descricao" class="form-control" required></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Atualizar</button>
+      <button type="button" class="btn btn-secondary" [routerLink]="['/meus-agendamentos']">Cancelar</button>
+    </form>
+  </div>
+  
