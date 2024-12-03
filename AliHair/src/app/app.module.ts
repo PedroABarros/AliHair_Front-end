@@ -16,6 +16,7 @@ import { CardSalaoComponent } from './card-salao/card-salao.component';
 import { AgendarSalaoComponent } from './agendar-salao/agendar-salao.component';
 import { ListagemSaloesComponent } from './salaos/listagem-saloes/listagem-saloes.component';
 import { EditarSalaoComponent } from './salaos/editar-salao/editar-salao.component';
+import { ListaAgendamentoComponent } from './lista-agendamento/lista-agendamento.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EditarSalaoComponent } from './salaos/editar-salao/editar-salao.compone
     CardSalaoComponent,
     AgendarSalaoComponent,
     ListagemSaloesComponent,
-    EditarSalaoComponent
+    EditarSalaoComponent,
+    ListaAgendamentoComponent
   ],
   imports: [
     BrowserModule,
