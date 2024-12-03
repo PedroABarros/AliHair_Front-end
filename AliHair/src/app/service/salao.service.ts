@@ -1,4 +1,3 @@
-// salao.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -17,8 +16,8 @@ interface Endereco {
 export class SalaoService {
   private apiUrl = 'http://localhost:8080/v1/salao';
  
-  
   constructor(private http: HttpClient) { }
+
   listarSaloes(): Observable<Salao[]> {
     return this.http.get<Salao[]>(this.apiUrl);
   }
@@ -29,5 +28,17 @@ export class SalaoService {
 
   buscarCep(cep: string): Observable<Endereco> {
     return this.http.get<Endereco>(`https://viacep.com.br/ws/${cep}/json/`);
+  }
+
+  excluirSalao(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  obterSalaoPorId(id: number): Observable<Salao> {
+    return this.http.get<Salao>(`${this.apiUrl}/${id}`);
+  }
+
+  atualizarSalao(id: number, salao: Salao): Observable<Salao> {
+    return this.http.put<Salao>(`${this.apiUrl}/${id}`, salao);
   }
 }

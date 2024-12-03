@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Lista de Salões</h2>
+    
+    <div *ngIf="mensagemErro" class="mensagem-erro">
+      {{ mensagemErro }}
+    </div>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let salao of saloes">
+          <td>{{ salao.id }}</td>
+          <td>{{ salao.nome }}</td>
+          <td>{{ salao.email }}</td>
+          <td>
+            <button (click)="editarSalao(salao.id)" class="btn btn-primary">Editar</button>
+            <button (click)="excluirSalao(salao.id)" class="btn btn-danger">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

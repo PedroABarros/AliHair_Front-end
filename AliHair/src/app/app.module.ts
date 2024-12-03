@@ -14,6 +14,8 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { CadastroSalaoComponent } from './salaos/cadastro-salao/cadastro-salao.component';
 import { CardSalaoComponent } from './card-salao/card-salao.component';
 import { AgendarSalaoComponent } from './agendar-salao/agendar-salao.component';
+import { ListagemSaloesComponent } from './salaos/listagem-saloes/listagem-saloes.component';
+import { EditarSalaoComponent } from './salaos/editar-salao/editar-salao.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AgendarSalaoComponent } from './agendar-salao/agendar-salao.component';
     FormClienteComponent,
     CadastroSalaoComponent,
     CardSalaoComponent,
-    AgendarSalaoComponent
+    AgendarSalaoComponent,
+    ListagemSaloesComponent,
+    EditarSalaoComponent
   ],
   imports: [
     BrowserModule,
