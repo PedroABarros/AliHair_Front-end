@@ -8,6 +8,9 @@ import { CadastroSalaoComponent } from './salaos/cadastro-salao/cadastro-salao.c
 import { CardSalaoComponent } from './card-salao/card-salao.component';
 import { ListagemSaloesComponent } from './salaos/listagem-saloes/listagem-saloes.component';
 import { EditarSalaoComponent } from './salaos/editar-salao/editar-salao.component';
+import { ListaAgendamentoComponent} from './agendamento/lista-agendamento/lista-agendamento.component';  
+import { AgendarSalaoComponent } from './agendamento/agendar-salao/agendar-salao.component';  
+import { AgendamentoFormComponent } from './agendamento/agendamento-form/agendamento-form.component';  
 
 const routes: Routes = [
   { path: '', redirectTo: '/principal', pathMatch: 'full' }, 
@@ -18,9 +21,18 @@ const routes: Routes = [
   { path: 'clientes/editar/:id', component: FormClienteComponent },
   { path: 'novo-salao', component: CadastroSalaoComponent },
   { path: 'card-salao', component: CardSalaoComponent },
-  {path: 'listar-saloes', component: ListagemSaloesComponent},
- { path: 'editar-salao/:id', component: EditarSalaoComponent}
+  { path: 'listar-saloes', component: ListagemSaloesComponent },
+  { path: 'editar-salao/:id', component: EditarSalaoComponent },
+  { path: 'listar-agendamento', component: ListaAgendamentoComponent },
 
+  
+  { path: 'listar-agendamentos', component: ListaAgendamentoComponent },
+  
+  
+  { path: 'agendar-salao', component: AgendarSalaoComponent },
+  
+  
+  { path: 'editar-agendamento/:id', component: AgendamentoFormComponent }
 ];
 
 @NgModule({

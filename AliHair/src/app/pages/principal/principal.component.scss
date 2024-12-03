@@ -4,7 +4,7 @@ $cor-fundo-claro: #c4c4c4;
 $cor-texto-suave: #6c757d;
 $espacamento-padrao: 1rem;
 
-// Mixins
+
 @mixin flex-centro {
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@ $espacamento-padrao: 1rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
-// Estilos Base
+
 .principal {
   min-height: 100vh;
 }
@@ -23,7 +23,7 @@ $espacamento-padrao: 1rem;
   text-align: center;
 }
 
-// Cabeçalho
+
 .cabecalho {
   padding: 3rem $espacamento-padrao;
   margin-bottom: 0;
@@ -36,7 +36,7 @@ $espacamento-padrao: 1rem;
   }
 }
 
-// Textos
+
 .texto {
   &-suave {
     color: $cor-texto-suave;
@@ -48,7 +48,7 @@ $espacamento-padrao: 1rem;
   }
 }
 
-// Botões
+
 .botao {
   display: inline-block;
   padding: 0.375rem 0.75rem;
@@ -95,7 +95,7 @@ $espacamento-padrao: 1rem;
   }
 }
 
-// Layout
+
 .container {
   width: 100%;
   max-width: 1140px;
@@ -120,7 +120,7 @@ $espacamento-padrao: 1rem;
   }
 }
 
-// Cartão
+
 .cartao {
   position: relative;
   background-color: #fff;
@@ -144,7 +144,7 @@ $espacamento-padrao: 1rem;
   }
 }
 
-// Utilidades
+
 .fundo-claro {
   background-color: $cor-fundo-claro;
 }

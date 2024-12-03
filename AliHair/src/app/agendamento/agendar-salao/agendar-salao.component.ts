@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
-import { AgendamentoService } from '../service/agendamento.service';
-import { AuthService } from '../service/Auth.service';
-import { Agendamento } from '../model/Agendamento';
+import { AgendamentoService } from '../../service/agendamento.service';
+import { AuthService } from '../../service/Auth.service';
+import { Agendamento } from '../../model/Agendamento';
 
 @Component({
   selector: 'app-agendar-salao',
@@ -12,7 +12,7 @@ export class AgendarSalaoComponent implements OnInit {
   @Input() idSalao: number = 0;
   @Output() close = new EventEmitter<void>();
 
-  // Controle da visibilidade do modal
+  
   isVisible: boolean = false;
 
   agendamento: Agendamento = {
@@ -39,18 +39,18 @@ export class AgendarSalaoComponent implements OnInit {
     this.agendamento.idSalao = this.idSalao;
   }
 
-  // Método para abrir o modal
+  
   openModal() {
     this.isVisible = true;
   }
 
-  // Método para fechar o modal
+  
   closeModal() {
     this.isVisible = false;
-    this.close.emit();  // Emite o evento de fechamento para o componente pai
+    this.close.emit();  
   }
 
-  // Método para lidar com o envio do formulário de agendamento
+  
   onSubmit() {
     this.agendamentoService.criarAgendamento(this.agendamento)
       .subscribe(response => {

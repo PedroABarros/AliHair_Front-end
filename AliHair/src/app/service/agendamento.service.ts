@@ -7,32 +7,32 @@ import { Agendamento } from '../model/Agendamento';
   providedIn: 'root'
 })
 export class AgendamentoService {
-  private apiURL = 'http://localhost:8080/v1/agendamento'; 
+  private apiURL = 'http://localhost:8080/api/agendamentos'; // Altere a URL conforme necessário
 
   constructor(private http: HttpClient) {}
 
-  // Criar agendamento
+  // Método para obter todos os agendamentos
+  getAgendamentos(): Observable<Agendamento[]> {
+    return this.http.get<Agendamento[]>(this.apiURL);
+  }
+
+  // Método para obter um agendamento por id
+  getAgendamento(id: number): Observable<Agendamento> {
+    return this.http.get<Agendamento>(`${this.apiURL}/${id}`);
+  }
+
+  // Método para criar um novo agendamento
   criarAgendamento(agendamento: Agendamento): Observable<Agendamento> {
     return this.http.post<Agendamento>(this.apiURL, agendamento);
   }
 
-  // Listar agendamentos
-  listarAgendamentos(): Observable<Agendamento[]> {
-    return this.http.get<Agendamento[]>(this.apiURL);
-  }
-
-  // Buscar agendamento por ID
-  buscarAgendamentoPorId(id: number): Observable<Agendamento> {
-    return this.http.get<Agendamento>(`${this.apiURL}/${id}`);
-  }
-
-  // Atualizar agendamento
+  // Método para atualizar um agendamento
   atualizarAgendamento(id: number, agendamento: Agendamento): Observable<Agendamento> {
     return this.http.put<Agendamento>(`${this.apiURL}/${id}`, agendamento);
   }
 
-  // Deletar agendamento
-  deletarAgendamento(id: number): Observable<void> {
+  // Método para excluir um agendamento
+  deleteAgendamento(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiURL}/${id}`);
   }
 }

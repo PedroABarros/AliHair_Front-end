@@ -1,0 +1,28 @@
+<div class="modal">
+  <div class="modal-content cartao sombra-caixa">
+    <span class="close-button" (click)="closeModal()">&times;</span>
+    <h2 class="texto-central mb-4">Agendar Serviço</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label for="nome" class="texto-suave">Nome:</label>
+        <input type="text" id="nome" name="nome" [(ngModel)]="agendamento.nomeCliente" class="form-control" required>
+      </div>
+      <div class="mb-4">
+        <label for="data" class="texto-suave">Data:</label>
+        <input type="date" id="data" name="data" [(ngModel)]="agendamento.diaAgendamento" class="form-control" required>
+      </div>
+      <div class="mb-4">
+        <label for="hora" class="texto-suave">Hora:</label>
+        <input type="time" id="hora" name="hora" [(ngModel)]="agendamento.horarioAgendamento" class="form-control" required>
+      </div>
+      <div class="mb-4">
+        <label for="descricao" class="texto-suave">Descrição:</label>
+        <select id="descricao" name="descricao" [(ngModel)]="agendamento.descricao" class="form-control" required>
+          <option value="corte">Corte</option>
+          <option value="outra">Outra</option>
+        </select>
+      </div>
+      <button type="submit" class="botao botao-primario">Agendar</button>
+    </form>
+  </div>
+</div>

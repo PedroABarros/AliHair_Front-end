@@ -1,0 +1,28 @@
+<div class="container py-5">
+  <h2 class="texto-central mb-4">Lista de Agendamentos</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Dia</th>
+        <th>Hora</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agendamento of agendamentos">
+        <td>{{ agendamento.id }}</td>
+        <td>{{ agendamento.nomeCliente }}</td>
+        <td>{{ agendamento.diaAgendamento | date:'dd/MM/yyyy' }}</td>
+        <td>{{ agendamento.horarioAgendamento | date:'HH:mm' }}</td>
+        <td>
+          <div class="grupo-botoes">
+            <button (click)="editarAgendamento(agendamento.id ?? 0)" class="botao botao-primario botao-sm">Editar</button>
+            <button (click)="deleteAgendamento(agendamento.id ?? 0)" class="botao botao-secundario botao-sm">Excluir</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

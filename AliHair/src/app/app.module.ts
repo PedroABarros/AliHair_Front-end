@@ -13,10 +13,11 @@ import { FormClienteComponent } from './pages/clientes/form-cliente/form-cliente
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { CadastroSalaoComponent } from './salaos/cadastro-salao/cadastro-salao.component';
 import { CardSalaoComponent } from './card-salao/card-salao.component';
-import { AgendarSalaoComponent } from './agendar-salao/agendar-salao.component';
+import { AgendarSalaoComponent } from './agendamento/agendar-salao/agendar-salao.component';
 import { ListagemSaloesComponent } from './salaos/listagem-saloes/listagem-saloes.component';
 import { EditarSalaoComponent } from './salaos/editar-salao/editar-salao.component';
-import { ListaAgendamentoComponent } from './lista-agendamento/lista-agendamento.component';
+import { ListaAgendamentoComponent } from './agendamento/lista-agendamento/lista-agendamento.component';
+import { AgendamentoFormComponent } from './agendamento/agendamento-form/agendamento-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ListaAgendamentoComponent } from './lista-agendamento/lista-agendamento
     AgendarSalaoComponent,
     ListagemSaloesComponent,
     EditarSalaoComponent,
-    ListaAgendamentoComponent
+    ListaAgendamentoComponent,
+    AgendamentoFormComponent
   ],
   imports: [
     BrowserModule,
